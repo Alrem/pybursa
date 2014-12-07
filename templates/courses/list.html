@@ -41,51 +41,46 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">HomeWork #7</h3>
+              <h3 class="masthead-brand">HomeWork #10</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><a href="../">Home</a></li>
-                  <li class="active"><a href="../products">Products</a></li>
-                  <li><a href="../product">Product</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li class="active"><a href="/courses/">Courses list</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Our Products.</h1>
-            <p class="lead">Тут можно буде подивитися характеристики наших
-              особливо класних персон.</p>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Ім'я</th>
-                  <th>Прізвище</th>
-                  <th>Нік</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
+            <h1>PyBursa Courses list</h1>
+
+             <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">PyBursa Courses list</div>
+
+
+            <!-- Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Название</th>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for course in courses %}
+                      <tr>
+                        <td> <a href="/courses/{{ course.id }}/">
+                    <font color="black"> {{ course.title }} </font> </a></td>
+                        <td><font color="black"> {{ course.start_date }} </font></td>
+                        <td><font color="black"> {{ course.start_date }} </font></td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+
+
 
           <div class="mastfoot">
             <div class="inner">

@@ -41,51 +41,31 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">HomeWork #7</h3>
+              <h3 class="masthead-brand">HomeWork #10</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><a href="../">Home</a></li>
-                  <li class="active"><a href="../products">Products</a></li>
-                  <li><a href="../product">Product</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/courses/">Courses list</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Our Products.</h1>
-            <p class="lead">Тут можно буде подивитися характеристики наших
-              особливо класних персон.</p>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Ім'я</th>
-                  <th>Прізвище</th>
-                  <th>Нік</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
+                <h1>Курсы: {{ courses.title }}</h1>
+                <ul class="list-group">
+                  <font color="black">
+                  <li class="list-group-item">Язык программирования (технология): {{ courses.language }}</li>
+                  <li class="list-group-item">Название: {{ courses.title }}</li>
+                  <li class="list-group-item">Описание: {{ courses.description }}</li>
+                  <li class="list-group-item">Преподаватель: {{ courses.instructor }}</li>
+                  <li class="list-group-item">Асистент: {{ courses.assistant }}</li>
+                  <li class="list-group-item">Дата начала: {{ courses.start_date }}</li>
+                  <li class="list-group-item">Дата окончания: {{ courses.end_date }}</li>
+                  </font>
+
+                </ul>
+
+
 
           <div class="mastfoot">
             <div class="inner">
