@@ -12,4 +12,5 @@ def students_list(request):
 
 def students_item(request, student_id):
     student = Student.objects.get(id=student_id)
+    print type(student.courses)
     return render(request, 'students/item.html', {'student': student})

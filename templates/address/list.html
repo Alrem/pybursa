@@ -44,26 +44,33 @@
               <h3 class="masthead-brand">HomeWork #11</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="../">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="/students">Student</a></li>
                   <li><a href="/courses">Course</a></li>
                   <li><a href="/coaches">Coach</a></li>
-                  <li><a href="/address">Address</a></li>
+                  <li class="active"><a href="/address">Address</a></li>
                   <li><a href="/dossier">Dossier</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">HomeWork #11</h1>
-            <p class="lead">После проверки кучи домашних заданий что может быть лучше
-            очень красивой ... и очень тупой песни. :)</p>
-          </div>
+            <h1>PyBursa Address list</h1>
+            <ul class="list-group">
 
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/F-k5yZwFeUk"allowfullscreen></iframe>
-          </div>
+              {% for adres in address %}
+            <li class="list-group-item">
+                <a href="/address/{{ adres.id }}/">
+                    <font color="black">
+                {{ adres.country }}, {{ adres.street }}, {{ adres.home }}
+                    </font>
+
+                </a>
+            </li>
+            {% endfor %}
+
+            </ul>
+
 
           <div class="mastfoot">
             <div class="inner">

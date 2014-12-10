@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'students',
     'courses',
     'coaches',
+    'dossier',
+    'address',
     #''
 )
 

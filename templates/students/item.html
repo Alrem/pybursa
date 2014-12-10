@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>HomeWork #7</title>
+    <title>HomeWork #11</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -41,11 +41,15 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">HomeWork #10</h3>
+              <h3 class="masthead-brand">HomeWork #11</h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="/">Home</a></li>
-                  <li><a href="/students/">Students list</a></li>
+                  <li class="active"><a href="/students">Student</a></li>
+                  <li><a href="/courses">Course</a></li>
+                  <li><a href="/coaches">Coach</a></li>
+                  <li><a href="/address">Address</a></li>
+                  <li><a href="/dossier">Dossier</a></li>
                 </ul>
               </nav>
             </div>
@@ -57,8 +61,15 @@
                   <font color="black">
                   <li class="list-group-item">Email: {{ student.email }}</li>
                   <li class="list-group-item">Телефон: {{ student.phone }}</li>
+                  <li class="list-group-item">Курсы:
+                      {% for course in student.courses.all %}
+                        {{ course.title }} {% endfor %}
+
+                      </li>
                   <li class="list-group-item">Пакет: {{ student.package }}</li>
-                  {# <li class="list-group-item">Рейтинг: 1</li> #}
+                  <li class="list-group-item"><a href="/dossier/{{ student.dossier.id }}/">
+                      <font color="grey">Досье</font>
+                  </a></li>
                   </font>
 
                 </ul>

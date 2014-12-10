@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>HomeWork #7</title>
+    <title>HomeWork #11</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -41,11 +41,15 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">HomeWork #10</h3>
+              <h3 class="masthead-brand">HomeWork #11</h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="/">Home</a></li>
-                  <li><a href="/courses/">Courses list</a></li>
+                  <li><a href="/students">Student</a></li>
+                  <li class="active"><a href="/courses">Course</a></li>
+                  <li><a href="/coaches">Coach</a></li>
+                  <li><a href="/address">Address</a></li>
+                  <li><a href="/dossier">Dossier</a></li>
                 </ul>
               </nav>
             </div>
@@ -54,11 +58,15 @@
                 <h1>Курсы: {{ courses.title }}</h1>
                 <ul class="list-group">
                   <font color="black">
-                  <li class="list-group-item">Язык программирования (технология): {{ courses.language }}</li>
+                  <li class="list-group-item">Язык программирования (технология): {{ courses.technology }}</li>
                   <li class="list-group-item">Название: {{ courses.title }}</li>
                   <li class="list-group-item">Описание: {{ courses.description }}</li>
-                  <li class="list-group-item">Преподаватель: {{ courses.instructor }}</li>
-                  <li class="list-group-item">Асистент: {{ courses.assistant }}</li>
+                  <li class="list-group-item">Преподаватель:
+                      <a href="/coaches/{{ courses.instructor.id }}/"><font color="grey">
+                      {{ courses.instructor.surname }} {{ courses.instructor.name }}</font></a></li>
+                  <li class="list-group-item">Асистент:
+                      <a href="/coaches/{{ courses.assistant.id }}/"><font color="grey">
+                      {{ courses.assistant.surname }} {{ courses.assistant.name }}</font></a></li>
                   <li class="list-group-item">Дата начала: {{ courses.start_date }}</li>
                   <li class="list-group-item">Дата окончания: {{ courses.end_date }}</li>
                   </font>

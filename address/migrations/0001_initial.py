@@ -11,14 +11,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Coaches',
+            name='Address',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=255)),
-                ('surname', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=75)),
-                ('phone', models.CharField(max_length=15)),
-                ('role', models.CharField(default=b'lecturer', max_length=10, choices=[(b'lecturer', b'lecturer'), (b'assistant', b'assistant')])),
+                ('postal_code', models.CharField(max_length=10)),
+                ('country', models.CharField(max_length=40)),
+                ('region', models.CharField(max_length=40)),
+                ('district', models.CharField(max_length=40)),
+                ('street', models.CharField(max_length=40)),
+                ('home', models.CharField(max_length=40)),
             ],
             options={
             },

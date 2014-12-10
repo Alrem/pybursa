@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>HomeWork #7</title>
+    <title>HomeWork #11</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -41,23 +41,31 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">HomeWork #10</h3>
+              <h3 class="masthead-brand">HomeWork #11</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/coaches/">Coaches list</a></li>
+                  <li><a href="../">Home</a></li>
+                  <li><a href="/courses">Course</a></li>
+                  <li class="active"><a href="/coaches">Coach</a></li>
+                  <li><a href="/students">Student</a></li>
+                  <li><a href="/address">Address</a></li>
+                  <li><a href="/dossier">Dossier</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
 
-                <h1>Coache: {{ coache.description }}</h1>
+                <h1>Препод: {{ coache.surname }} {{ coache.name }}</h1>
                 <ul class="list-group">
                   <font color="black">
-                  <li class="list-group-item">Oписание: {{ coache.description }}</li>
-                  <li class="list-group-item">Лектор или асистент: {{ coache.sign }}</li>
-                  <li class="list-group-item">Какой курс преподает: {{ coache.course }}</li>
+                  <li class="list-group-item">E-mail: {{ coache.email }}</li>
+                  <li class="list-group-item">Телефон: {{ coache.phone }}</li>
+                  <li class="list-group-item">Тип: {{ coache.role }}</li>
+                  <li class="list-group-item">Пользователь: {{ coache.user }}</li>
+                  <li class="list-group-item"><a href="/dossier/{{ coache.dossier.id }}/">
+                      <font color="grey">Досье</font>
+                  </a></li>
                   </font>
 
                 </ul>
