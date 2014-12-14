@@ -18,3 +18,7 @@ class Coaches(models.Model):
                             default='lecturer')
     user = models.ForeignKey(User)
     dossier = models.OneToOneField('dossier.Dossier')
+
+
+    def __unicode__(self):
+        return self.surname + ' ' + self.name

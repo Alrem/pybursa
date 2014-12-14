@@ -69,6 +69,10 @@
                       {{ courses.assistant.surname }} {{ courses.assistant.name }}</font></a></li>
                   <li class="list-group-item">Дата начала: {{ courses.start_date }}</li>
                   <li class="list-group-item">Дата окончания: {{ courses.end_date }}</li>
+                  <li class="list-group-item">Адрес:
+                      <a href="/address/{{ courses.venue.id }}/">
+                      <font color="grey">{{ courses.venue.street }}, {{ courses.venue.home }}</font></a>
+                  </li>
                   </font>
 
                 </ul>

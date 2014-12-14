@@ -11,3 +11,6 @@ class Address(models.Model):
     district = models.CharField(max_length=40)
     street = models.CharField(max_length=40)
     home = models.CharField(max_length=40)
+
+    def __unicode__(self):
+        return self.street + ', ' + self.home

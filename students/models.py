@@ -14,3 +14,6 @@ class Student(models.Model):
     courses = models.ManyToManyField(Courses)
     package = models.CharField(max_length=15)
     dossier = models.OneToOneField(Dossier)
+
+    def __unicode__(self):
+        return self.surname + ' ' + self.name

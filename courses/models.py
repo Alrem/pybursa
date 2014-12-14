@@ -15,4 +15,8 @@ class Courses(models.Model):
     end_date = models.DateField()
     technology = models.CharField(max_length=255)
     venue = models.ForeignKey(Address)
+    slug = models.SlugField()
 
+
+    def __unicode__(self):
+        return self.title

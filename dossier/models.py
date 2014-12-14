@@ -20,3 +20,6 @@ class Dossier(models.Model):
     color = models.CharField(max_length=6,
                             choices=COLORS,
                             default='purple')
+
+    def __unicode__(self):
+        return self.color
