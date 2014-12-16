@@ -12,4 +12,3 @@ class StudentAdmin(admin.ModelAdmin):
     ordering = ['surname', 'name']
     list_filter = ['name', 'surname', 'email', 'phone', 'package', 'dossier']
     search_fields = ['name', 'surname']
-    

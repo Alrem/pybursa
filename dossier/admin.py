@@ -14,4 +14,4 @@ class DossierAdmin(admin.ModelAdmin):
     ordering = ['address', 'color']
     list_filter = ['address', 'color']
     search_fields = ['address', 'color']
-    
+

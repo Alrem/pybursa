@@ -4,7 +4,7 @@ from courses.views import courses_list, courses_item
 
 urlpatterns = patterns('',
 
-    url(r'^$', courses_list),
-    url(r'^(?P<courses_id>\d+)/$', courses_item),
+    url(r'^$', courses_list, name='Course_list'),
+    url(r'^(?P<courses_id>\d+)/$', courses_item, name='Course_item'),
 
 )
