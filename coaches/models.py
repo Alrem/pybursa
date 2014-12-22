@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import User
+from django import forms
+from dossier.models import Dossier
 
 class Coaches(models.Model):
 
@@ -17,8 +19,12 @@ class Coaches(models.Model):
                             choices=ROLES,
                             default='lecturer')
     user = models.ForeignKey(User)
-    dossier = models.OneToOneField('dossier.Dossier')
+    dossier = models.OneToOneField(Dossier)
 
 
     def __unicode__(self):
         return self.surname + ' ' + self.name
+
+class CoachesForms(forms.ModelForm):
+    class Meta:
+        model = Coaches

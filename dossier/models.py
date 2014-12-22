@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 from address.models import Address
-from courses.models import Courses
+
 
 class Dossier(models.Model):
 
     address = models.ForeignKey(Address)
-    unloved_courses = models.ManyToManyField(Courses, blank=True)
+    unloved_courses = models.ManyToManyField('courses.Courses', blank=True)
     COLORS = (
         ('red', 'red'),
         ('orange', 'orange'),

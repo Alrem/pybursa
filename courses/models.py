@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+from django import forms
 from coaches.models import Coaches
 from address.models import Address
 
@@ -20,3 +21,7 @@ class Courses(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class CoursesForms(forms.ModelForm):
+    class Meta:
+        model = Courses

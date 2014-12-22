@@ -4,6 +4,7 @@ from django.db import models
 
 from courses.models import Courses
 from dossier.models import Dossier
+from django import forms
 
 class Student(models.Model):
 
@@ -17,3 +18,11 @@ class Student(models.Model):
 
     def __unicode__(self):
         return self.surname + ' ' + self.name
+
+
+class StudentForm(forms.Form):
+    student_name = forms.CharField(max_length=100)
+    student_surname = forms.CharField(max_length=255)
+    student_email = forms.EmailField()
+    student_phone = forms.CharField(max_length=15)
+    student_package = forms.CharField(max_length=15)
