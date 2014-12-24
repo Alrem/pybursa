@@ -1,12 +1,12 @@
 {% extends "coaches/base.html" %}
 {% block content %}
 
-                <h1>Coaches edit item</h1>
+                <h1>А ты уверен, что хочешь это сделать?</h1>
                 <div <div class="alert alert-info" role="alert">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" class="btn btn-default" value="За-пись" />
+                    <input type="submit" class="btn btn-default" value="ДА!" />
                 </form>
                 </div>
 

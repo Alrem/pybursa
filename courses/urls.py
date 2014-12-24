@@ -1,11 +1,14 @@
 from django.conf.urls import patterns, include, url
-from courses.views import courses_list, courses_item, courses_edit, courses_add
+from courses.views import (CoursesListView, CoursesView,
+                           CoursesCreate, CoursesUpdate,
+                           CoursesDelete)
 
 
 urlpatterns = patterns('',
 
-    url(r'^$', courses_list, name='Course_list'),
-    url(r'^(?P<courses_id>\d+)/$', courses_item, name='Course_item'),
-    url(r'^add/$', courses_add, name='course_add'),
-    url(r'^edit/(?P<courses_id>\d+)/$', courses_edit, name='courses_edit'),
+    url(r'^$', CoursesListView.as_view(), name='Course_list'),
+    url(r'^(?P<pk>\d+)/$', CoursesView.as_view(), name='Course_item'),
+    url(r'^add/$', CoursesCreate.as_view(), name='course_add'),
+    url(r'^edit/(?P<pk>\d+)/$', CoursesUpdate.as_view(), name='courses_edit'),
+    url(r'^del/(?P<pk>\d+)/$', CoursesDelete.as_view(), name='courses_del'),
 )

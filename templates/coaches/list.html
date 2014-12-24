@@ -4,7 +4,7 @@
             <h1>PyBursa Coaches list</h1>
             <ul class="list-group">
 
-              {% for coache in coaches %}
+              {% for coache in object_list %}
             <li class="list-group-item">
                 <a href={% url 'Coach_item' coache.id %}>
                     <font color="black">

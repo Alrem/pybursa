@@ -2,34 +2,30 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from coaches.models import Coaches, CoachesForms
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView,UpdateView, DeleteView
 
 
-def coaches_list(request):
-    coaches = Coaches.objects.all()
-    return render(request, 'coaches/list.html', {'coaches': coaches})
+class CoachesListView(ListView):
+    template_name = 'coaches/list.html'
+    model = Coaches
 
+class CoachesView(DetailView):
+    template_name = 'coaches/item.html'
+    model = Coaches
 
-def coaches_item(request, coaches_id):
-    coache = Coaches.objects.get(id=coaches_id)
-    return render(request, 'coaches/item.html', {'coache': coache})
+class CoachesCreate(CreateView):
+    model = Coaches
+    template_name = 'coaches/edit.html'
+    success_url="/coaches"
 
-def coaches_edit(request, coaches_id):
-    coaches = Coaches.objects.get(id=coaches_id)
-    if request.method == 'POST':
-        form = CoachesForms(request.POST, instance=coaches)
-        if form.is_valid():
-            coaches = form.save()
-            return redirect('Coach_list')
-    else:
-        form = CoachesForms(instance=coaches)
-    return render(request,'coaches/edit.html', {'form': form})
+class CoachesUpdate(UpdateView):
+    model = Coaches
+    template_name = 'coaches/edit.html'
+    success_url="/coaches"
 
-def coaches_add(request):
-    if request.method == 'POST':
-        form = CoachesForms(request.POST)
-        if form.is_valid():
-            coaches = form.save()
-            return redirect('Coach_list')
-    else:
-        form = CoachesForms()
-    return render(request,'coaches/edit.html', {'form': form})
+class CoachesDelete(DeleteView):
+    model = Coaches
+    template_name = 'coaches/del.html'
+    success_url="/coaches"

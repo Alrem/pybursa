@@ -1,27 +1,28 @@
 {% extends "courses/base.html" %}
 {% block content %}
 
-                <h1>Курсы: {{ courses.title }}</h1>
+                <h1>Курсы: {{ object.title }}</h1>
                 <ul class="list-group">
                   <font color="black">
-                  <li class="list-group-item">Язык программирования (технология): {{ courses.technology }}</li>
-                  <li class="list-group-item">Название: {{ courses.title }}</li>
-                  <li class="list-group-item">Описание: {{ courses.description }}</li>
+                  <li class="list-group-item">Язык программирования (технология): {{ object.technology }}</li>
+                  <li class="list-group-item">Название: {{ object.title }}</li>
+                  <li class="list-group-item">Описание: {{ object.description }}</li>
                   <li class="list-group-item">Преподаватель:
-                      <a href={% url 'Coach_item' courses.instructor.id %}><font color="grey">
-                      {{ courses.instructor.surname }} {{ courses.instructor.name }}</font></a></li>
+                      <a href={% url 'Coach_item' object.instructor.id %}><font color="grey">
+                      {{ courses.instructor.surname }} {{ object.instructor.name }}</font></a></li>
                   <li class="list-group-item">Асистент:
-                      <a href={% url 'Coach_item' courses.assistant.id %}><font color="grey">
-                      {{ courses.assistant.surname }} {{ courses.assistant.name }}</font></a></li>
-                  <li class="list-group-item">Дата начала: {{ courses.start_date }}</li>
-                  <li class="list-group-item">Дата окончания: {{ courses.end_date }}</li>
+                      <a href={% url 'Coach_item' object.assistant.id %}><font color="grey">
+                      {{ object.assistant.surname }} {{ object.assistant.name }}</font></a></li>
+                  <li class="list-group-item">Дата начала: {{ object.start_date }}</li>
+                  <li class="list-group-item">Дата окончания: {{ object.end_date }}</li>
                   <li class="list-group-item">Адрес:
-                      <a href={% url 'address_item' courses.venue.id %}>
-                      <font color="grey">{{ courses.venue.street }}, {{ courses.venue.home }}</font></a>
+                      <a href={% url 'address_item' object.venue.id %}>
+                      <font color="grey">{{ object.venue.street }}, {{ object.venue.home }}</font></a>
                   </li>
                   </font>
 
                 </ul>
-                <a href={% url 'courses_edit' courses.id %} class="btn btn-default" role="button">Edit</a></p>
+                <a href={% url 'courses_edit' object.id %} class="btn btn-primary" role="button">Edit</a>
+                <a href={% url 'courses_del' object.id %} class="btn btn-primary" role="button">Remove</a></p>
 
 {% endblock %}

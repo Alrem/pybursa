@@ -37,19 +37,20 @@ def student_add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
+            student = Student()
             student.name = form.cleaned_data['student_name']
-            student.surname = form.cleaned_data['student_surname']
-            student.email = form.cleaned_data['student_email']
-            student.phone = form.cleaned_data['student_phone']
+            student.surname = form.cleaned_data['student_surname'],
+            student.email = form.cleaned_data['student_email'],
+            student.phone = form.cleaned_data['student_phone'],
             student.package = form.cleaned_data['student_package']
             student.save()
             return redirect('Student_list')
     else:
         form = StudentForm(initial={
-            'student_name': student.name,
-            'student_surname': student.surname,
-            'student_email': student.email,
-            'student_phone': student.phone,
-            'student_package': student.package,
+            'student_name': '',
+            'student_surname': '',
+            'student_email': '',
+            'student_phone': '',
+            'student_package': '',
         })
     return render(request,'students/edit.html', {'form': form})

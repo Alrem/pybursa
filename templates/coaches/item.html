@@ -1,18 +1,20 @@
 {% extends "coaches/base.html" %}
 {% block content %}
 
-                <h1>Препод: {{ coache.surname }} {{ coache.name }}</h1>
+                <h1>Препод: {{ object.surname }} {{ object.name }}</h1>
                 <ul class="list-group">
                   <font color="black">
-                  <li class="list-group-item">E-mail: {{ coache.email }}</li>
-                  <li class="list-group-item">Телефон: {{ coache.phone }}</li>
-                  <li class="list-group-item">Тип: {{ coache.role }}</li>
-                  <li class="list-group-item">Пользователь: {{ coache.user }}</li>
-                  <li class="list-group-item"><a href={% url 'dossier-item' coache.dossier.id %}>
+                  <li class="list-group-item">E-mail: {{ object.email }}</li>
+                  <li class="list-group-item">Телефон: {{ object.phone }}</li>
+                  <li class="list-group-item">Тип: {{ object.role }}</li>
+                  <li class="list-group-item">Пользователь: {{ object.user }}</li>
+                  <li class="list-group-item"><a href={% url 'dossier-item' object.dossier.id %}>
                       <font color="grey">Досье</font>
                   </a></li>
                   </font>
 
                 </ul>
-                <a href={% url 'coaches_edit' coache.id %} class="btn btn-default" role="button">Edit</a></p>
+                <a href={% url 'coaches_edit' object.id %} class="btn btn-primary" role="button">Edit</a>
+                <a href={% url 'coaches_remove' object.id %} class="btn btn-primary" role="button">Remove</a>
+                </p>
 {% endblock %}
