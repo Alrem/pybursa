@@ -14,4 +14,6 @@ urlpatterns = patterns('',
     url(r'^dossier/', include('dossier.urls')),
     url(r'^$', TemplateView.as_view(template_name='main.html'), name='Home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^contacts/', include('contacts.urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

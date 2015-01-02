@@ -21,7 +21,3 @@ class Courses(models.Model):
 
     def __unicode__(self):
         return self.title
-
-class CoursesForms(forms.ModelForm):
-    class Meta:
-        model = Courses

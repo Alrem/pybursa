@@ -5,6 +5,7 @@ from django.db import models
 from courses.models import Courses
 from dossier.models import Dossier
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 class Student(models.Model):
 

@@ -24,7 +24,3 @@ class Coaches(models.Model):
 
     def __unicode__(self):
         return self.surname + ' ' + self.name
-
-class CoachesForms(forms.ModelForm):
-    class Meta:
-        model = Coaches
