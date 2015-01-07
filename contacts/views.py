@@ -8,9 +8,11 @@ from django.views.generic.edit import CreateView
 from contacts.models import Contacts
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import send_mail
-
+import logging
+logger = logging.getLogger(__name__)
 
 class CreateMessage(CreateView):
+
     model = Contacts
     template_name = 'contacts.html'
     success_url=reverse_lazy('Contacts')
@@ -25,4 +27,5 @@ class CreateMessage(CreateView):
         send_mail(obj.subject, full_message, 'from@pybursa.com',
                   [obj.recipient.email], fail_silently=False)
         messages.success(self.request,'Message was send.')
+        logger.info('Message was send.')
         return super(CreateMessage, self).form_valid(form)

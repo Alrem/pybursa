@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
+    'django_extensions',
     'students',
     'courses',
     'coaches',
@@ -63,6 +65,47 @@ ROOT_URLCONF = 'pybursa.urls'
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
 
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(module)s %(levelname)s : %(message)s',
+            },
+        },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+            },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': os.path.join(BASE_DIR,
+                                     'debug.log'),
+            },
+        },
+    'loggers': {
+        'students': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            },
+        'contacts': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            },
+        'coaches': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            },
+        'courses': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            },
+        },
+    }
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -76,6 +119,7 @@ DATABASES = {
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 LOCALE_PATH = (os.path.join(BASE_DIR, 'locale'), )
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 from django.utils.translation import ugettext_lazy as _

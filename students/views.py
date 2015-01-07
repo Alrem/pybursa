@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 from students.models import Student, StudentForm
+import logging
+logger = logging.getLogger(__name__)
 
 
 def students_list(request):
@@ -11,7 +13,6 @@ def students_list(request):
 
 def students_item(request, student_id):
     student = Student.objects.get(id=student_id)
-    print type(student.courses)
     return render(request, 'students/item.html', {'student': student})
 
 def student_edit(request, student_id):
@@ -22,6 +23,7 @@ def student_edit(request, student_id):
             student.name = form.cleaned_data['student_name']
             student.surname = form.cleaned_data['student_surname']
             student.save()
+            logger.info(student.name + ' ' + student.surname + ' was edit')
             return redirect('Student_list')
     else:
         form = StudentForm(initial={
