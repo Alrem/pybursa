@@ -1,6 +1,6 @@
 # python precompiled files:
 *.pyc
 *.pyo
-
+pybursa/local_settings.py
 # IDEs files:
 .idea/
